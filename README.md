@@ -30,6 +30,7 @@ Session 2 (~ 8 hours)
 -   Added delete movie functionality.
 -   Added search and sort capabilities in Welcome component.
 -   Created Policy for movies and registered in AuthServiceProvider. Connected with Edit, Update and Delete movie.
+-   Generated favicons
 
 ## Files location
 
