@@ -47,7 +47,6 @@ Session 2 (~ 8 hours)
 -   Add factories and seeders.
 -   Add translations for text strings in component
 -   Style all Jetstram components.
--   Add Policies for User Movies
 -   Add Caching with Redis
 -   Security considerations
 -   Add Voyager CMS for admin purposes
