@@ -43,9 +43,9 @@ Session 2 (~ 8 hours)
 
 ## Enchancements
 
+-   Add factories and seeders.
 -   Add tests.
 -   Add CI/CD.
--   Add factories and seeders.
 -   Add translations for text strings in component.
 -   Style all Jetstream components.
 -   Add Caching with Redis.
