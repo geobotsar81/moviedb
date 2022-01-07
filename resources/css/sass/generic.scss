@@ -30,6 +30,16 @@ a {
     height: 37px;
 }
 
+.form-select {
+    height: 50px;
+
+    &:hover,
+    &:focus {
+        box-shadow: none;
+        border-color: $appRed;
+    }
+}
+
 textarea.form-control {
     height: 200px;
 }

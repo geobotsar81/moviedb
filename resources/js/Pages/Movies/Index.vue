@@ -17,14 +17,8 @@
             </div>
             <div class="row mt-4" v-if="userMovies && userMovies.length > 0">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <ol>
-                                <li v-for="(movie, index) in userMovies" :key="index">
-                                    <app-movie :movie="movie"></app-movie>
-                                </li>
-                            </ol>
-                        </div>
+                    <div v-for="(movie, index) in userMovies" :key="index">
+                        <app-movie :movie="movie" :count="index"></app-movie>
                     </div>
                 </div>
             </div>

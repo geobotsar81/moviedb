@@ -54,10 +54,23 @@ class MovieRepository
     /**
      * Get a paginated list of movies
      *
+     * @param String $search
      * @return LengthAwarePaginator
      */
-    public function paginated():LengthAwarePaginator
+    public function paginated(?String $search, Int $sort):LengthAwarePaginator
     {
-        return Movie::with(['user'])->orderBy('year', 'desc')->paginate(5);
+        switch ($sort) {
+            case 1:
+                $movies=Movie::with(['user'])->where('title', 'LIKE', "%{$search}%")->sortByYear()->paginate(5);
+                break;
+            case 2:
+                $movies=Movie::with(['user'])->where('title', 'LIKE', "%{$search}%")->sortByDate()->paginate(5);
+                break;
+            case 3:
+                $movies=Movie::with(['user'])->where('title', 'LIKE', "%{$search}%")->sortByTitle()->paginate(5);
+                break;
+        }
+
+        return $movies;
     }
 }

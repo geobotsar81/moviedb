@@ -137,7 +137,10 @@ class MovieController extends Controller
      */
     public function paginated(Request $request):LengthAwarePaginator
     {
-        $movies=$this->movieRepo->paginated();
+        $search=$request['search'];
+        $sort=$request['sort'];
+
+        $movies=$this->movieRepo->paginated($search, $sort);
         return $movies;
     }
 }

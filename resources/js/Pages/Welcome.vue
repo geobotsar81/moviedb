@@ -6,13 +6,45 @@
                 <div class="col-12"><h1>Welcome to TheMovieDB</h1></div>
             </div>
 
+            <div class="row mt-2" v-if="$page.props.user">
+                <div class="col-12">
+                    Welcome <strong>{{ $page.props.user.name }}</strong
+                    >! <inertia-link :href="route('dashboard')">Visit your Dashboard</inertia-link> to manage your movies
+                </div>
+            </div>
+            <div class="row mt-2" v-else>
+                <div class="col-12"><inertia-link :href="route('login')">Login</inertia-link> or <inertia-link :href="route('register')">Register</inertia-link> to start adding your movies</div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-sm-8">
+                    <label for="searchMovies">Search movies</label>
+                    <input
+                        id="searchMovies"
+                        @change="searchMovies"
+                        type="text"
+                        v-model="searchFilter"
+                        class="form-control searchMovies"
+                        placeholder="Search Movie DB(Type your query and press enter)"
+                    />
+                </div>
+                <div class="col-sm-4">
+                    <label for="sortMovies">Sort movies by</label>
+                    <select id="sortMovies" @change="searchMovies" v-model="sortFilter" class="form-select" aria-label="Sort movies by">
+                        <option value="1" selected>Movie year</option>
+                        <option value="2">Date added</option>
+                        <option value="3">Title</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="row" v-if="searching">
                 <div class="col-12"><img src="img/LoaderIcon.gif" /></div>
             </div>
 
             <div class="mt-4" v-if="movies && !searching">
                 <div v-for="(movie, index) in movies" :key="index">
-                    <app-movie :movie="movie" source="home"></app-movie>
+                    <app-movie :movie="movie" :count="index" source="home"></app-movie>
                 </div>
 
                 <app-pagination :currentPage="currentPage" :links="links" v-model="currentPage" />
@@ -25,7 +57,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { Head, Link } from "@inertiajs/inertia-vue3";
+import { Head, InertiaLink } from "@inertiajs/inertia-vue3";
 import AppLayout from "@/Layouts/AppLayout";
 import TheMain from "@/Shared/TheMain";
 import AppMovie from "@/Shared/AppMovie";
@@ -34,7 +66,7 @@ import AppPagination from "@/Shared/AppPagination";
 export default defineComponent({
     components: {
         Head,
-        Link,
+        InertiaLink,
         AppLayout,
         TheMain,
         AppMovie,
@@ -49,7 +81,8 @@ export default defineComponent({
             movies: null,
             links: null,
             currentPage: 1,
-            search: null,
+            searchFilter: null,
+            sortFilter: 1,
             searching: false,
         };
     },
@@ -65,7 +98,8 @@ export default defineComponent({
                 url: route("movies.paginated"),
                 data: {
                     page: this.currentPage,
-                    search: this.search,
+                    search: this.searchFilter,
+                    sort: this.sortFilter,
                 },
             })
                 .then((response) => {
@@ -85,3 +119,11 @@ export default defineComponent({
     },
 });
 </script>
+<style lang="scss" scoped>
+.searchMovies {
+    width: 100%;
+}
+label {
+    font-size: 14px;
+}
+</style>
