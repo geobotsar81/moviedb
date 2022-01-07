@@ -12,6 +12,9 @@
                 <div class="col-12"><h1>My Movies</h1></div>
             </div>
 
+            <div class="row" v-if="message">
+                <div class="col-12 alert alert-success">{{ message }}</div>
+            </div>
             <div class="row mt-4" v-if="userMovies && userMovies.length > 0">
                 <div class="col-12">
                     <div class="card">
@@ -51,9 +54,12 @@ export default defineComponent({
     },
     layout: AppLayout,
     data() {
-        return {
-            userMovies: this.$page.props.userMovies,
-        };
+        return {};
+    },
+    computed: {
+        userMovies() {
+            return this.$page.props.userMovies;
+        },
     },
 });
 </script>

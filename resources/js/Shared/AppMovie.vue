@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6 movie__links">
             <inertia-link :href="route('movies.show', movie.id)"> View </inertia-link>
-            <span v-if="loggeInUser && loggeInUser.id == movie.user_id">
+            <span v-if="loggeInUser && loggeInUser.id == movie.user_id && source != 'home'">
                 | <inertia-link :href="route('movies.edit', movie.id)"> Edit </inertia-link> | <inertia-link method="post" :href="route('movies.destroy', movie.id)"> Delete </inertia-link>
             </span>
         </div>
@@ -25,6 +25,7 @@ export default {
     components: { InertiaLink },
     props: {
         movie: Object,
+        source: String,
     },
     data() {
         return {

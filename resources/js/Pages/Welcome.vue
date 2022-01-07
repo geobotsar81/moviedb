@@ -12,7 +12,7 @@
 
             <div class="mt-4" v-if="movies && !searching">
                 <div v-for="(movie, index) in movies" :key="index">
-                    <app-movie :movie="movie"></app-movie>
+                    <app-movie :movie="movie" source="home"></app-movie>
                 </div>
 
                 <app-pagination :currentPage="currentPage" :links="links" v-model="currentPage" />

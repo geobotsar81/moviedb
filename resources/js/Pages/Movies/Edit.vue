@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="year">Year</label>
-                            <input type="number" v-model="form.year" class="form-control" id="year" aria-describedby="year" placeholder="Enter year" />
+                            <input type="number" min="1800" max="2022" v-model="form.year" class="form-control" id="year" aria-describedby="year" placeholder="Enter year" />
                             <small id="yearHelp" class="form-text text-muted">Provide the year the movie you are adding was created.</small>
                             <div class="formError" v-if="$page.props.errors.year">
                                 {{ $page.props.errors.year }}
