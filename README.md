@@ -11,7 +11,9 @@ Day 1
 -   Installed Bootstrap and created global styles in resources/css.
 -   Modified webpack.mix.
 -   Styled Jetstream components with Bootstrap, removed tailwind classes.
-    Day 2
+
+Day 2
+
 -   Created Model for movies.
 -   Created migration for movies.
 -   Created resource Controller for movies.
