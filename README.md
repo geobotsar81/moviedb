@@ -4,7 +4,7 @@
 
 Find below a list of the steps followed while developing this project
 
-Day 1
+Day 1 (~ 2 hours)
 
 -   Created new Laravel project.
 -   Installed Jetstream(with VueJs and InertiaJs) for the authentication scaffolding.
@@ -12,7 +12,7 @@ Day 1
 -   Modified webpack.mix.
 -   Styled Jetstream components with Bootstrap, removed tailwind classes.
 
-Day 2
+Day 2 (~ 7 hours)
 
 -   Created Model for movies.
 -   Created migration for movies.
@@ -23,7 +23,7 @@ Day 2
 -   Created StoreMovieRequest class.
 -   Created MovieRepository class to handle any database requests related to Movies.
 -   Created Index Movie component in Pages, for displaying a user's movies.
--   Created AppMovie component in Shared, for displaying a singe movie.
+-   Created AppMovie component in Shared, for displaying a single movie.
 -   Added axios call to Welcome component to load all movies.
 -   Created Show Movie component in Pages, for displaying a movie.
 -   Created Edit Movie component in Pages, for editing a movie.
@@ -46,8 +46,3 @@ Day 2
 -   Style all Jetstram components.
 -   Add Policies for User Movies
 -   Add Caching with Redis
-
-## Time spent
-
--   Day 1 : ~ 2 hours
--   Day 2 : ~ 7 hours
