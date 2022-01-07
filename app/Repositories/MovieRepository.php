@@ -27,9 +27,8 @@ class MovieRepository
      * @param Array $data
      * @return void
      */
-    public function update(array $data, int $id):void
+    public function update(array $data, Movie $movie):void
     {
-        $movie = Movie::findOrFail($id);
         $movie->title=$data['title'];
         $movie->year=$data['year'];
         $movie->description=$data['description'];

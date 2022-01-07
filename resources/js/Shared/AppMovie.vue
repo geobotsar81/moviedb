@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .movie {
     padding: 10px 0px;
-    margin-bottom: 5px;
+
     img {
         padding-right: 10px;
         border: solid 1px $appLightGrey;
@@ -65,7 +65,8 @@ export default {
 
     &.even {
         background-color: $appLightGrey;
-        border: solid 1px $appLightGrey2;
+        border-top: solid 1px $appLightGrey2;
+        border-bottom: solid 1px $appLightGrey2;
     }
     &:hover,
     &:focus {

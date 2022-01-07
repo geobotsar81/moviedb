@@ -71,6 +71,7 @@ import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
 import TheMain from "@/Shared/TheMain";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 
 export default defineComponent({
@@ -83,14 +84,14 @@ export default defineComponent({
     },
     layout: AppLayout,
     setup() {
-        const movie = usePage().props.value.movie;
-        const publicUrl = usePage().props.value.publicUrl;
+        const movie = computed(() => usePage().props.value.movie);
+        const publicUrl = computed(() => usePage().props.value.publicUrl);
 
         const form = useForm({
-            title: movie.title,
+            title: movie.value.title,
             image: null,
-            year: movie.year,
-            description: movie.description,
+            year: movie.value.year,
+            description: movie.value.description,
         });
 
         const formSuccess = false;
@@ -98,7 +99,8 @@ export default defineComponent({
         function submit() {
             this.formSuccess = false;
             this.form.submit("post", route("movies.update", this.movie.id), {
-                preserveScroll: true,
+                preserveScroll: false,
+                resetOnSuccess: false,
                 onSuccess: () => {
                     this.formSuccess = true;
                     Inertia.reload();

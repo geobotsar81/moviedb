@@ -29,6 +29,7 @@ Session 2 (~ 8 hours)
 -   Created Edit Movie component in Pages, for editing a movie. Added update functionality
 -   Added delete movie functionality.
 -   Added search and sort capabilities in Welcome component
+-   Created Policy for movies and registered in AuthServiceProvider. Connected with Edit, Update and Delete movie
 
 ## Files location
 

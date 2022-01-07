@@ -87,6 +87,12 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
+        $user = Auth::user();
+
+        if ($user->cannot('update', $movie)) {
+            abort(403);
+        }
+
         return Inertia::render('Movies/Edit', ['movie' => $movie]);
     }
 
@@ -97,8 +103,14 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMovieRequest $request, $movieID)
+    public function update(UpdateMovieRequest $request, Movie $movie)
     {
+        $user = Auth::user();
+
+        if ($user->cannot('update', $movie)) {
+            abort(403);
+        }
+
         $data = $request->validated();
 
         //Check if request contains a new image
@@ -107,10 +119,10 @@ class MovieController extends Controller
             $data['image']=$image;
         }
 
-        $user = Auth::user();
+       
         $data['user_id']=$user->id;
 
-        $this->movieRepo->update($data, $movieID);
+        $this->movieRepo->update($data, $movie);
 
         return redirect()->back();
     }
@@ -123,6 +135,12 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        $user = Auth::user();
+        
+        if ($user->cannot('delete', $movie)) {
+            abort(403);
+        }
+
         $movie->delete();
         return redirect()->back();
         ;

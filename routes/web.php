@@ -26,7 +26,7 @@ Route::prefix('/my-movies')->middleware(['auth:sanctum', 'verified'])->name('mov
     Route::get('create', [MovieController::class,'create'])->name('create');
     Route::post('store', [MovieController::class,'store'])->name('store');
     Route::get('edit/{movie}', [MovieController::class,'edit'])->name('edit');
-    Route::post('update/{id}', [MovieController::class,'update'])->name('update');
+    Route::post('update/{movie}', [MovieController::class,'update'])->name('update');
     Route::post('destroy/{movie}', [MovieController::class,'destroy'])->name('destroy');
 });
 
