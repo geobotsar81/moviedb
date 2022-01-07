@@ -4,19 +4,19 @@
             <div class="row">
                 <div class="col-12"><h2>TheMovieDB</h2></div>
             </div>
+            <div class="row footer__copyrights">
+                <div class="col-12">© George Botsaris - {{ currentYear }}</div>
+            </div>
         </div>
     </footer>
 </template>
 <script>
-import AppButton from "@/Shared/AppButton";
-
 export default {
-    emits: ["initialised"],
-    components: {
-        AppButton,
-    },
+    components: {},
     data() {
-        return {};
+        return {
+            currentYear: this.$page.props.currentYear,
+        };
     },
 };
 </script>
@@ -30,8 +30,11 @@ export default {
 
     h2 {
         color: #fff;
-        font-size: 80px;
+        font-size: 60px;
         font-weight: 700;
     }
+}
+.footer__copyrights {
+    font-size: 16px;
 }
 </style>

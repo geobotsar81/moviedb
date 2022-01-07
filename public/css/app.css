@@ -11288,29 +11288,29 @@ body {
 
 a {
   text-decoration: none;
+  transition: all 0.4s;
 }
-
-.hidden {
-  display: none;
-}
-
-h1, .h1 {
-  font-weight: 700;
-}
-
-h2, .h2 {
+a:hover, a:focus {
   color: #212529;
 }
 
 .form-control {
   height: 50px;
   width: 400px;
-  margin: auto;
   display: block;
+  transition: all 0.4s;
 }
 .form-control:hover, .form-control:focus {
   box-shadow: none;
   border-color: #b40900;
+}
+
+.form-control[type=file] {
+  height: 37px;
+}
+
+textarea.form-control {
+  height: 200px;
 }
 
 .buttonBlack {
@@ -11332,6 +11332,10 @@ h2, .h2 {
   text-decoration: none;
   outline: none;
   box-shadow: none;
+}
+
+.formError {
+  color: #b40900;
 }
 
 @tailwind base;

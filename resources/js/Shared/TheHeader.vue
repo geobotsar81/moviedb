@@ -2,30 +2,34 @@
     <header class="header">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-10 col-lg-4">
-                    <Link :href="route('home')" class="logo"> TheMovieDB </Link>
+                <div class="col-sm-6 col-lg-4 text-center text-sm-start">
+                    <inertia-link :href="route('home')" class="logo"> TheMovieDB </inertia-link>
                 </div>
-                <div class="col-2 col-lg-8 text-end mt-2 mt-md-0">
-                    <div>
-                        <Link v-if="$page.props.user" :href="route('dashboard')"> Dashboard </Link>
-
-                        <template v-else>
-                            <Link :href="route('login')" class="pe-2"> Log in </Link>
-
-                            <Link :href="route('register')"> Register </Link>
-                        </template>
-                    </div>
+                <div class="col-sm-6 col-lg-8 text-center text-sm-end">
+                    <template v-if="$page.props.user">
+                        <div class="row">
+                            <div class="col-12">
+                                Welcome <strong>{{ $page.props.user.name }}</strong>
+                            </div>
+                        </div>
+                        <inertia-link :href="route('dashboard')"> Dashboard </inertia-link> |
+                        <inertia-link :href="route('logout')" method="post"> Logout </inertia-link>
+                    </template>
+                    <template v-else>
+                        <inertia-link :href="route('login')" class="pe-2"> Log in </inertia-link> |
+                        <inertia-link :href="route('register')"> Register </inertia-link>
+                    </template>
                 </div>
             </div>
         </div>
     </header>
 </template>
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
+import { InertiaLink } from "@inertiajs/inertia-vue3";
 
 export default {
     components: {
-        Link,
+        InertiaLink,
     },
     data() {
         return {};
@@ -36,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-    padding: 25px 45px;
+    padding: 15px 45px;
     position: fixed;
     width: 100%;
     left: 0;
@@ -53,6 +57,11 @@ export default {
     .logo {
         font-size: 16px;
         font-weight: 700;
+    }
+}
+@media (max-width: 575.98px) {
+    .header {
+        padding: 10px;
     }
 }
 </style>

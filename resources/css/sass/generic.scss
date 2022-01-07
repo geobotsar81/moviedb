@@ -5,29 +5,33 @@ body {
 
 a {
     text-decoration: none;
-}
+    transition: $appTransition;
 
-.hidden {
-    display: none;
-}
-
-h1 {
-    font-weight: 700;
-}
-h2 {
-    color: $appBlack;
+    &:hover,
+    &:focus {
+        color: $appBlack;
+    }
 }
 
 .form-control {
     height: 50px;
     width: 400px;
-    margin: auto;
     display: block;
+    transition: $appTransition;
+
     &:hover,
     &:focus {
         box-shadow: none;
         border-color: $appRed;
     }
+}
+
+.form-control[type="file"] {
+    height: 37px;
+}
+
+textarea.form-control {
+    height: 200px;
 }
 
 .buttonBlack {
@@ -51,4 +55,8 @@ h2 {
         outline: none;
         box-shadow: none;
     }
+}
+
+.formError {
+    color: $appRed;
 }

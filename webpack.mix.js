@@ -22,7 +22,3 @@ mix.js("resources/js/app.js", "public/js")
     .webpackConfig(require("./webpack.config"));
 
 mix.version();
-
-mix.browserSync({
-    proxy: "moviedb.test",
-});

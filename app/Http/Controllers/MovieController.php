@@ -2,10 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Repositories\MovieRepository;
+use App\Http\Requests\StoreMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class MovieController extends Controller
 {
+    protected $movieRepo;
+
+    /**
+     * Inject the movie repository class into the controller
+     *
+     * @param MovieRepository $movieRepo
+     */
+    public function __construct(MovieRepository $movieRepo)
+    {
+        $this->movieRepo=$movieRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +32,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $userMovies= $this->movieRepo->userMovies($user);
+        return Inertia::render('Movies/Index', ['userMovies' => $userMovies]);
     }
 
     /**
@@ -23,7 +44,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Movies/Create');
     }
 
     /**
@@ -32,9 +53,19 @@ class MovieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMovieRequest $request)
     {
-        //
+        $user = Auth::user();
+        $image = $request->file('image')->storePublicly('movies', 'public');
+
+        $data = $request->validated();
+
+        $data['user_id']=$user->id;
+        $data['image']=$image;
+
+        $this->movieRepo->store($data);
+
+        return redirect()->back();
     }
 
     /**
@@ -43,9 +74,9 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie)
     {
-        //
+        return Inertia::render('Movies/Show', ['movie' => $movie]);
     }
 
     /**
@@ -54,9 +85,9 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        //
+        return Inertia::render('Movies/Edit', ['movie' => $movie]);
     }
 
     /**
@@ -66,9 +97,22 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateMovieRequest $request, $movieID)
     {
-        //
+        $data = $request->validated();
+
+        //Check if request contains a new image
+        if ($request->file('image')) {
+            $image = $request->file('image')->storePublicly('movies', 'public');
+            $data['image']=$image;
+        }
+
+        $user = Auth::user();
+        $data['user_id']=$user->id;
+
+        $this->movieRepo->update($data, $movieID);
+
+        return redirect()->back();
     }
 
     /**
@@ -80,5 +124,18 @@ class MovieController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+     * Get a paginated list of all the movies
+     *
+     * @param Request $request
+     * @return LengthAwarePaginator
+     */
+    public function paginated(Request $request):LengthAwarePaginator
+    {
+        $movies=$this->movieRepo->paginated();
+        return $movies;
     }
 }

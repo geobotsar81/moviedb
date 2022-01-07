@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+        <link href="{{ asset('assets/fontawesome-pro/css/all.min.css') }}" rel="stylesheet" />
 
         <!-- Scripts -->
         @routes
@@ -18,7 +19,7 @@
     </head>
     <body class="font-sans antialiased">
         @inertia @env ('local')
-        <script src="http://moviedb.test/browser-sync/browser-sync-client.js"></script>
+        <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
         @endenv
     </body>
 </html>
