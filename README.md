@@ -32,10 +32,11 @@ Session 2 (~ 8 hours)
 -   Created Policy for movies and registered in AuthServiceProvider. Connected with Edit, Update and Delete movie.
 -   Generated favicons
 
-Session 3 (~ hours)
+Session 3 (~ 1 hours)
 
 -   Created Movie Factory.
 -   Created Movie Seeder, seeded 10 users with 10 movies each.
+-   Created subdomain, connected with github, setup project and database.
 
 ## Files location
 
@@ -53,6 +54,8 @@ Session 3 (~ hours)
 -   Add tests.
 -   Add Docker container.
 -   Add CI/CD.
+-   Hash ids in urls.
+-   Add title in movie urls.
 -   Add translations for text strings in component.
 -   Style all Jetstream components.
 -   Add Caching with Redis.
