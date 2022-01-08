@@ -21,7 +21,7 @@
                     <form @submit.prevent="submit">
                         <div class="form-group">
                             <div v-if="movie.image">
-                                <img class="img-fluid" width="120" :src="publicUrl + '/' + movie.image" />
+                                <img class="img-fluid" width="120" :src="storageUrl + '/' + movie.image" />
                             </div>
                             <label for="image">Image</label>
                             <input id="image" class="form-control" type="file" @input="form.image = $event.target.files[0]" />
@@ -85,7 +85,7 @@ export default defineComponent({
     layout: AppLayout,
     setup() {
         const movie = computed(() => usePage().props.value.movie);
-        const publicUrl = computed(() => usePage().props.value.publicUrl);
+        const storageUrl = computed(() => usePage().props.value.storageUrl);
 
         const form = useForm({
             title: movie.value.title,
@@ -108,7 +108,7 @@ export default defineComponent({
             });
         }
 
-        return { form, formSuccess, submit, publicUrl, movie };
+        return { form, formSuccess, submit, storageUrl, movie };
     },
 });
 </script>
