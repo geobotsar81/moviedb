@@ -6,17 +6,17 @@
                 <div class="col-12"><h1>Welcome to TheMovieDB</h1></div>
             </div>
 
-            <div class="row mt-2" v-if="$page.props.user">
+            <div class="row mt-4" v-if="$page.props.user">
                 <div class="col-12">
                     Welcome <strong>{{ $page.props.user.name }}</strong
                     >! <inertia-link :href="route('dashboard')">Visit your Dashboard</inertia-link> to manage your movies
                 </div>
             </div>
-            <div class="row mt-2" v-else>
+            <div class="row mt-4" v-else>
                 <div class="col-12"><inertia-link :href="route('login')">Login</inertia-link> or <inertia-link :href="route('register')">Register</inertia-link> to start adding your movies</div>
             </div>
 
-            <div class="row mt-4">
+            <div class="row mt-5">
                 <div class="col-sm-8">
                     <label for="searchMovies">Search movies</label>
                     <input

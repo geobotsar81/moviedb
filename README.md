@@ -32,6 +32,11 @@ Session 2 (~ 8 hours)
 -   Created Policy for movies and registered in AuthServiceProvider. Connected with Edit, Update and Delete movie.
 -   Generated favicons
 
+Session 3 (~ hours)
+
+-   Created Movie Factory.
+-   Created Movie Seeder, seeded 10 users with 10 movies each.
+
 ## Files location
 
 -   Styles: resources/css.
@@ -40,11 +45,13 @@ Session 2 (~ 8 hours)
 -   Movie Controller: app/Http/Controllers/MovieController.php.
 -   Movie Requests classes: app/Http/Requests.
 -   Movie Repository class: app/Repositories.
+-   Movie Factory class: database/Factories.
+-   Movie Seeder class: database/Seeders.
 
 ## Enchancements
 
--   Add factories and seeders.
 -   Add tests.
+-   Add Docker container.
 -   Add CI/CD.
 -   Add translations for text strings in component.
 -   Style all Jetstream components.
