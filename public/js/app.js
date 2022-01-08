@@ -28723,7 +28723,7 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_3 = {
   key: 0,
-  "class": "row mt-2"
+  "class": "row mt-4"
 };
 var _hoisted_4 = {
   "class": "col-12"
@@ -28739,7 +28739,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 var _hoisted_9 = {
   key: 1,
-  "class": "row mt-2"
+  "class": "row mt-4"
 };
 var _hoisted_10 = {
   "class": "col-12"
@@ -28754,7 +28754,7 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" to start adding your movies");
 
 var _hoisted_15 = {
-  "class": "row mt-4"
+  "class": "row mt-5"
 };
 var _hoisted_16 = {
   "class": "col-sm-8"
