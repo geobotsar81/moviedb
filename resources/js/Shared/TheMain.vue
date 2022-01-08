@@ -1,17 +1,10 @@
 <template>
-    <main id="main" :class="cls">
+    <main id="main">
         <slot></slot>
     </main>
 </template>
 <script>
-export default {
-    props: {
-        cls: {
-            type: String,
-            required: false,
-        },
-    },
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 main {

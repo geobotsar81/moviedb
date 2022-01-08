@@ -5,7 +5,6 @@
             <div class="row">
                 <div class="col-12"><h1>Welcome to TheMovieDB</h1></div>
             </div>
-
             <div class="row mt-4" v-if="$page.props.user">
                 <div class="col-12">
                     Welcome <strong>{{ $page.props.user.name }}</strong
@@ -15,7 +14,6 @@
             <div class="row mt-4" v-else>
                 <div class="col-12"><inertia-link :href="route('login')">Login</inertia-link> or <inertia-link :href="route('register')">Register</inertia-link> to start adding your movies</div>
             </div>
-
             <div class="row mt-5">
                 <div class="col-sm-8">
                     <label for="searchMovies">Search movies</label>
@@ -37,16 +35,13 @@
                     </select>
                 </div>
             </div>
-
             <div class="row" v-if="searching">
                 <div class="col-12"><img src="img/LoaderIcon.gif" /></div>
             </div>
-
             <div class="mt-4" v-if="movies && !searching">
                 <div v-for="(movie, index) in movies" :key="index">
                     <app-movie :movie="movie" :count="index" source="home"></app-movie>
                 </div>
-
                 <app-pagination :currentPage="currentPage" :links="links" v-model="currentPage" />
             </div>
         </div>

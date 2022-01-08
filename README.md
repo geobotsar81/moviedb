@@ -4,16 +4,18 @@
 
 Visit <a href="http://themoviedb.george-botsaris.com" target="_blank">http://themoviedb.george-botsaris.com</a> to view the project.
 
-## Files locations
+## Project files
 
--   Styles: resources/css.
--   Vue components: resources/js/Pages && resources/js/Shared.
+-   Global Styles: resources/css/app.scss.
+-   Vue components: resources/js/Pages && resources/js/Shared && resources/js/Layouts.
+-   Movie Routes: routes/web.php.
 -   Movie Model: app/Models/Movie.php.
 -   Movie Controller: app/Http/Controllers/MovieController.php.
--   Movie Repository class: app/Repositories.
--   Movie Requests classes: app/Http/Requests.
--   Movie Factory class: database/Factories.
--   Movie Seeder class: database/Seeders.
+-   Movie Repository: app/Repositories/MovieRepository.php.
+-   Movie Requests: app/Http/Requests.
+-   Movie Policy: app/Policies/MoviePolicy.php.
+-   Movie Factory: database/Factories/MovieFactory.php.
+-   Movie Seeder: database/Seeders/MovieSeeder.php.
 
 ## Development Steps
 
@@ -56,12 +58,12 @@ Session 3 (~ 1 hours)
 ## Enchancements
 
 -   Add tests.
--   Add Docker container.
+-   Setup Docker container.
 -   Add CI/CD.
 -   Hash ids in urls.
 -   Add title in movie urls.
 -   Add translations for text strings in component.
 -   Style all Jetstream components.
 -   Add Caching with Redis.
--   Security considerations.
+-   Create s search engine with ElasticSearch.
 -   Add Voyager CMS for admin purposes.

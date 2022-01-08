@@ -12,7 +12,6 @@
 </template>
 <script>
 export default {
-    components: {},
     data() {
         return {
             currentYear: this.$page.props.currentYear,

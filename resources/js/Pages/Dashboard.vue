@@ -6,7 +6,6 @@
                 <div class="col-12"><h1>Dashboard</h1></div>
             </div>
             <div class="row mt-4"><div class="col-12">Welcome to your dashboard, use the links below to handle your movies</div></div>
-
             <div class="row mt-4">
                 <div class="col-12 col-lg-6">
                     <div class="card">
