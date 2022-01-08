@@ -2,7 +2,7 @@
 
 ## Demo site
 
-Visit <a href="http://themoviedb.george-botsaris.com" target="_blank">http://themoviedb.george-botsaris.com</a> to view the project
+Visit <a href="http://themoviedb.george-botsaris.com" target="_blank">http://themoviedb.george-botsaris.com</a> to view the project.
 
 ## Files locations
 
