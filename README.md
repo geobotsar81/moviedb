@@ -57,13 +57,14 @@ Session 3 (~ 1 hours)
 
 ## Enchancements
 
+-   Add Caching with Redis.
 -   Add tests.
 -   Setup Docker container.
 -   Add CI/CD.
+-   Setup Sentry for error logging and performance monitoring
 -   Hash ids in urls.
--   Add title in movie urls.
--   Add translations for text strings in component.
+-   Setup user friendly urls for movies(containing the title).
+-   Setup translations for text strings in components.
 -   Style all Jetstream components.
--   Add Caching with Redis.
--   Create s search engine with ElasticSearch.
+-   Create a search engine with ElasticSearch.
 -   Add Voyager CMS for admin purposes.
