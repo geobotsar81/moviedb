@@ -49,11 +49,12 @@ Session 2 (~ 8 hours)
 -   Created Policy for movies and registered in AuthServiceProvider. Connected with Edit, Update and Delete movie.
 -   Generated favicons
 
-Session 3 (~ 1 hours)
+Session 3 (~ 2 hours)
 
 -   Created Movie Factory.
 -   Created Movie Seeder, seeded 10 users with 10 movies each.
 -   Created subdomain, connected with github, setup project and database.
+-   Update enchancements list.
 
 ## Enchancements
 
@@ -65,6 +66,8 @@ Session 3 (~ 1 hours)
 -   Setup Sentry for error logging and performance monitoring.
 -   Hash ids in urls.
 -   Setup user friendly urls for movies(containing the title).
+-   Handle meta tags and og tags.
+-   Check email deliverability and style email templates.
 -   Setup translations for text strings in components.
 -   Style all Jetstream components.
 -   Create a search engine with ElasticSearch.
