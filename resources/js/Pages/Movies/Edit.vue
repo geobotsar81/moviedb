@@ -7,15 +7,12 @@
                     <inertia-link :href="route('dashboard')"><i class="far fa-long-arrow-alt-left"></i> back to Dashboard</inertia-link>
                 </div>
             </div>
-
             <div class="row mt-4">
                 <div class="col-12">
                     <h1>Edit {{ movie.title }}</h1>
                 </div>
             </div>
-
             <div class="row mt-4" v-if="formSuccess"><div class="col-12 alert alert-success">Thanks, your movie was successfully updated</div></div>
-
             <div class="row mt-4">
                 <div class="col-12">
                     <form @submit.prevent="submit">
@@ -61,9 +58,6 @@
         </div>
     </the-main>
 </template>
-
-<style scoped></style>
-
 <script>
 import { defineComponent } from "vue";
 import { Head, InertiaLink } from "@inertiajs/inertia-vue3";

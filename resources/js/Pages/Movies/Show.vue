@@ -7,26 +7,20 @@
                     <inertia-link :href="route('home')"><i class="far fa-long-arrow-alt-left"></i> back to home page</inertia-link>
                 </div>
             </div>
-
             <div class="row mt-4">
                 <div class="col-12">
                     <h1>{{ movie.title }} - {{ movie.year }}</h1>
                 </div>
             </div>
-
             <div class="row mt-4">
                 <div class="col-12 col-sm-6 col-lg-3"><img class="img-fluid" :src="storageUrl + '/' + movie.image" /></div>
             </div>
-
             <div class="row mt-4">
                 <div class="col-12">{{ movie.description }}</div>
             </div>
         </div>
     </the-main>
 </template>
-
-<style scoped></style>
-
 <script>
 import { defineComponent } from "vue";
 import { Head, InertiaLink } from "@inertiajs/inertia-vue3";

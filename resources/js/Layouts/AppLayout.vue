@@ -15,12 +15,5 @@ export default {
         TheHeader,
         TheFooter,
     },
-    mounted() {
-        this.loading = false;
-    },
-    data() {
-        return {};
-    },
-    methods: {},
 };
 </script>
