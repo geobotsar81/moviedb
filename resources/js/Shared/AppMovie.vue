@@ -1,7 +1,7 @@
 <template>
     <div class="row align- align-items-center movie" :class="movieClass">
         <div class="col-sm-2">
-            <img v-if="movie.image" height="120" :src="publicUrl + '/' + movie.image" />
+            <img v-if="movie.image" height="120" :src="storageUrl + '/' + movie.image" />
         </div>
         <div class="col-sm-4 mt-2 mt-sm-0">
             <div class="row">
@@ -43,7 +43,7 @@ export default {
     data() {
         return {
             loggeInUser: this.$page.props.user,
-            publicUrl: this.$page.props.publicUrl,
+            storageUrl: this.$page.props.storageUrl,
         };
     },
     computed: {

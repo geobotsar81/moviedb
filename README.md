@@ -1,5 +1,20 @@
 # TheMoviedDB
 
+## Demo site
+
+Visit <a href="http://themoviedb.george-botsaris.com" target="_blank">http://themoviedb.george-botsaris.com</a> to view the project
+
+## Files locations
+
+-   Styles: resources/css.
+-   Vue components: resources/js/Pages && resources/js/Shared.
+-   Movie Model: app/Models/Movie.php.
+-   Movie Controller: app/Http/Controllers/MovieController.php.
+-   Movie Repository class: app/Repositories.
+-   Movie Requests classes: app/Http/Requests.
+-   Movie Factory class: database/Factories.
+-   Movie Seeder class: database/Seeders.
+
 ## Development Steps
 
 Find below a list of the steps followed while developing this project
@@ -32,27 +47,19 @@ Session 2 (~ 8 hours)
 -   Created Policy for movies and registered in AuthServiceProvider. Connected with Edit, Update and Delete movie.
 -   Generated favicons
 
-Session 3 (~ hours)
+Session 3 (~ 1 hours)
 
 -   Created Movie Factory.
 -   Created Movie Seeder, seeded 10 users with 10 movies each.
-
-## Files location
-
--   Styles: resources/css.
--   Vue components: resources/js/Pages && resources/js/Shared.
--   Movie Model: app/Models/Movie.php.
--   Movie Controller: app/Http/Controllers/MovieController.php.
--   Movie Requests classes: app/Http/Requests.
--   Movie Repository class: app/Repositories.
--   Movie Factory class: database/Factories.
--   Movie Seeder class: database/Seeders.
+-   Created subdomain, connected with github, setup project and database.
 
 ## Enchancements
 
 -   Add tests.
 -   Add Docker container.
 -   Add CI/CD.
+-   Hash ids in urls.
+-   Add title in movie urls.
 -   Add translations for text strings in component.
 -   Style all Jetstream components.
 -   Add Caching with Redis.

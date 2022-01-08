@@ -38,6 +38,7 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'publicUrl' => url("/"),
+            'storageUrl' => asset('storage'),
             'currentYear' => today()->format('Y'),
         ]);
     }

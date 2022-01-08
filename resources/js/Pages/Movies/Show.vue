@@ -15,7 +15,7 @@
             </div>
 
             <div class="row mt-4">
-                <div class="col-12 col-sm-6 col-lg-3"><img class="img-fluid" :src="publicUrl + '/' + movie.image" /></div>
+                <div class="col-12 col-sm-6 col-lg-3"><img class="img-fluid" :src="storageUrl + '/' + movie.image" /></div>
             </div>
 
             <div class="row mt-4">
@@ -44,7 +44,7 @@ export default defineComponent({
     data() {
         return {
             movie: this.$page.props.movie,
-            publicUrl: this.$page.props.publicUrl,
+            storageUrl: this.$page.props.storageUrl,
         };
     },
 });
