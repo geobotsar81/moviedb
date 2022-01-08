@@ -2,7 +2,7 @@
 
 ## Demo site
 
-Visit <a href="http://themoviedb.george-botsaris.com" target="_blank">http://themoviedb.george-botsaris.com</a> to view the project.
+Visit <a href="https://themoviedb.george-botsaris.com" target="_blank">https://themoviedb.george-botsaris.com</a> to view the project.
 
 ## Project files
 
@@ -58,10 +58,11 @@ Session 3 (~ 1 hours)
 ## Enchancements
 
 -   Add Caching with Redis.
+-   Move business logic from Controller to a Service class.
 -   Add tests.
 -   Setup Docker container.
 -   Add CI/CD.
--   Setup Sentry for error logging and performance monitoring
+-   Setup Sentry for error logging and performance monitoring.
 -   Hash ids in urls.
 -   Setup user friendly urls for movies(containing the title).
 -   Setup translations for text strings in components.
