@@ -1,5 +1,20 @@
 # TheMoviedDB
 
+## Demo site
+
+Visit <a href="http://themoviedb.george-botsaris.com" target="_blank">http://themoviedb.george-botsaris.com</a> to view the project
+
+## Files locations
+
+-   Styles: resources/css.
+-   Vue components: resources/js/Pages && resources/js/Shared.
+-   Movie Model: app/Models/Movie.php.
+-   Movie Controller: app/Http/Controllers/MovieController.php.
+-   Movie Repository class: app/Repositories.
+-   Movie Requests classes: app/Http/Requests.
+-   Movie Factory class: database/Factories.
+-   Movie Seeder class: database/Seeders.
+
 ## Development Steps
 
 Find below a list of the steps followed while developing this project
@@ -37,17 +52,6 @@ Session 3 (~ 1 hours)
 -   Created Movie Factory.
 -   Created Movie Seeder, seeded 10 users with 10 movies each.
 -   Created subdomain, connected with github, setup project and database.
-
-## Files location
-
--   Styles: resources/css.
--   Vue components: resources/js/Pages && resources/js/Shared.
--   Movie Model: app/Models/Movie.php.
--   Movie Controller: app/Http/Controllers/MovieController.php.
--   Movie Requests classes: app/Http/Requests.
--   Movie Repository class: app/Repositories.
--   Movie Factory class: database/Factories.
--   Movie Seeder class: database/Seeders.
 
 ## Enchancements
 
