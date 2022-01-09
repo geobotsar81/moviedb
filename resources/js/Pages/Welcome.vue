@@ -14,20 +14,28 @@
             <div class="row mt-4" v-else>
                 <div class="col-12"><inertia-link :href="route('login')">Login</inertia-link> or <inertia-link :href="route('register')">Register</inertia-link> to start adding your movies</div>
             </div>
+
             <div class="row mt-5">
-                <div class="col-sm-8">
-                    <label for="searchMovies">Search movies</label>
-                    <input id="searchMovies" type="text" v-model="searchFilter" class="form-control searchMovies" placeholder="Search Movie DB(Type your query and press enter)" />
-                </div>
-                <div class="col-sm-4">
-                    <label for="sortMovies">Sort movies by</label>
-                    <select id="sortMovies" v-model="sortFilter" class="form-select" aria-label="Sort movies by">
-                        <option value="1" selected>Movie year</option>
-                        <option value="2">Date added</option>
-                        <option value="3">Title</option>
-                    </select>
+                <div class="col-12">
+                    <form id="searchForm" @submit.prevent="searchMovies">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <label for="searchMovies">Search movies</label>
+                                <input id="searchMovies" type="text" v-model="searchFilter" class="form-control searchMovies" placeholder="Search Movie DB(Type your query and press enter)" />
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="sortMovies">Sort movies by</label>
+                                <select id="sortMovies" v-model="sortFilter" class="form-select" aria-label="Sort movies by">
+                                    <option value="1" selected>Movie year</option>
+                                    <option value="2">Date added</option>
+                                    <option value="3">Title</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+
             <div class="row" v-if="searching">
                 <div class="col-12"><img src="img/LoaderIcon.gif" /></div>
             </div>
