@@ -56,9 +56,9 @@ Session 3 (~ 2 hours)
 -   Created Movie Factory.
 -   Created Movie Seeder, seeded 10 users with 10 movies each.
 -   Created subdomain, connected with github, setup project and database.
--   Update enchancements list.
+-   Updated enhancements list.
 
-## Enchancements
+## Enhancements
 
 -   Add Caching with Redis.
 -   Move business logic from Controller to a Service class.
