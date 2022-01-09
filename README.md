@@ -56,7 +56,7 @@ Session 3 (~ 2 hours)
 -   Created Movie Factory.
 -   Created Movie Seeder, seeded 10 users with 10 movies each.
 -   Created subdomain, connected with github, setup project and database.
--   Updated enhancements list.
+-   Updated readme with future improvements.
 
 ## Future improvements
 
