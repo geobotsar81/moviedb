@@ -17,18 +17,11 @@
             <div class="row mt-5">
                 <div class="col-sm-8">
                     <label for="searchMovies">Search movies</label>
-                    <input
-                        id="searchMovies"
-                        @change="searchMovies"
-                        type="text"
-                        v-model="searchFilter"
-                        class="form-control searchMovies"
-                        placeholder="Search Movie DB(Type your query and press enter)"
-                    />
+                    <input id="searchMovies" type="text" v-model="searchFilter" class="form-control searchMovies" placeholder="Search Movie DB(Type your query and press enter)" />
                 </div>
                 <div class="col-sm-4">
                     <label for="sortMovies">Sort movies by</label>
-                    <select id="sortMovies" @change="searchMovies" v-model="sortFilter" class="form-select" aria-label="Sort movies by">
+                    <select id="sortMovies" v-model="sortFilter" class="form-select" aria-label="Sort movies by">
                         <option value="1" selected>Movie year</option>
                         <option value="2">Date added</option>
                         <option value="3">Title</option>
@@ -42,7 +35,7 @@
                 <div v-for="(movie, index) in movies" :key="index">
                     <app-movie :movie="movie" :count="index" source="home"></app-movie>
                 </div>
-                <app-pagination :currentPage="currentPage" :links="links" v-model="currentPage" />
+                <app-pagination :currentPage="currentPage" :links="paginationLinks" v-model="currentPage" />
             </div>
         </div>
     </the-main>
@@ -51,7 +44,7 @@
 <style scoped></style>
 
 <script>
-import { defineComponent } from "vue";
+import { ref, watch, defineComponent } from "vue";
 import { Head, InertiaLink } from "@inertiajs/inertia-vue3";
 import AppLayout from "@/Layouts/AppLayout";
 import TheMain from "@/Shared/TheMain";
@@ -68,49 +61,57 @@ export default defineComponent({
         AppPagination,
     },
     layout: AppLayout,
-    mounted() {
-        this.getMovies();
-    },
-    data() {
-        return {
-            movies: null,
-            links: null,
-            currentPage: 1,
-            searchFilter: null,
-            sortFilter: 1,
-            searching: false,
-        };
-    },
-    methods: {
-        searchMovies() {
-            this.currentPage = 1;
-            this.getMovies();
-        },
-        getMovies() {
-            this.searching = true;
+    setup() {
+        const movies = ref(null);
+        const paginationLinks = ref(null);
+        const currentPage = ref(1);
+        const searchFilter = ref(null);
+        const sortFilter = ref(1);
+        const searching = ref(null);
+
+        //Search for a movie
+        function searchMovies() {
+            currentPage.value = 1;
+            getMovies();
+        }
+
+        //Get movies from the database
+        function getMovies() {
+            searching.value = true;
             axios({
                 method: "post",
                 url: route("movies.paginated"),
                 data: {
-                    page: this.currentPage,
-                    search: this.searchFilter,
-                    sort: this.sortFilter,
+                    page: currentPage.value,
+                    search: searchFilter.value,
+                    sort: sortFilter.value,
                 },
             })
                 .then((response) => {
-                    this.movies = response.data.data;
-                    this.links = response.data.links;
-                    this.searching = false;
+                    movies.value = response.data.data;
+                    paginationLinks.value = response.data.links;
+                    searching.value = false;
                 })
                 .catch((error) => {
-                    this.searching = false;
+                    searching.value = false;
                 });
-        },
-    },
-    watch: {
-        currentPage(newData, oldData) {
-            this.getMovies();
-        },
+        }
+
+        //Watch for changes in search or sort filters in order to refresh the movies list
+        watch(
+            [searchFilter, sortFilter],
+            () => {
+                searchMovies();
+            },
+            { immediate: true }
+        );
+
+        //Watch for changes in current page in order to refresh the movies list
+        watch([currentPage], () => {
+            getMovies();
+        });
+
+        return { movies, paginationLinks, currentPage, searchFilter, sortFilter, searching, searchMovies, getMovies };
     },
 });
 </script>
