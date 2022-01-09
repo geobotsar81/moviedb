@@ -60,13 +60,13 @@ Session 3 (~ 2 hours)
 
 ## Enhancements
 
+-   Enhance application security(captcha in login/register forms, rate limit login attempts, mask ids in urls, encrypt sensitive data, disable debugging and directory listing, ensure user input is escaped, use Eloquent to avoid mysql injection, update packages reqularly and remove unused packages) as per suggestions - https://www.freecodecamp.org/news/protect-your-laravel-app-against-the-owasp-top-10-security-risks/.
+-   Setup Sentry for error logging and performance monitoring.
 -   Add Caching with Redis.
 -   Move business logic from Controller to a Service class.
 -   Add tests.
 -   Setup Docker container.
 -   Add CI/CD.
--   Setup Sentry for error logging and performance monitoring.
--   Hash ids in urls.
 -   Setup user friendly urls for movies(containing the title).
 -   Handle meta tags and og tags.
 -   Check email deliverability and style email templates.
