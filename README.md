@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-A simple movie database using Laravel 8, Vue 3 and InertiaJs. Authentication scaffolding using Jetstream along with CRUD functionality for users to manage their movies.
+A simple movie database using Laravel 8, Vue 3 and InertiaJs, done as an interview assignment over the course of 2 days, trying to follow best practises. Authentication scaffolding using Jetstream, along with CRUD functionality for users to manage their movies.
 
 Demo at <a href="https://themoviedb.george-botsaris.com" target="_blank">https://themoviedb.george-botsaris.com</a>.
 
