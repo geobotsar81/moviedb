@@ -22,7 +22,7 @@ class MovieController extends Controller
      */
     public function __construct(MovieRepository $movieRepo)
     {
-        $this->movieRepo=$movieRepo;
+        $this->movieRepo = $movieRepo;
     }
 
     /**
@@ -33,8 +33,8 @@ class MovieController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $userMovies= $this->movieRepo->userMovies($user);
-        return Inertia::render('Movies/Index', ['userMovies' => $userMovies]);
+        $userMovies = $this->movieRepo->userMovies($user);
+        return Inertia::render("Movies/Index", ["userMovies" => $userMovies]);
     }
 
     /**
@@ -44,7 +44,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Movies/Create');
+        return Inertia::render("Movies/Create");
     }
 
     /**
@@ -56,12 +56,12 @@ class MovieController extends Controller
     public function store(StoreMovieRequest $request)
     {
         $user = Auth::user();
-        $image = $request->file('image')->storePublicly('movies', 'public');
+        $image = $request->file("image")->storePublicly("movies", "public");
 
         $data = $request->validated();
 
-        $data['user_id']=$user->id;
-        $data['image']=$image;
+        $data["user_id"] = $user->id;
+        $data["image"] = $image;
 
         $this->movieRepo->store($data);
 
@@ -76,7 +76,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        return Inertia::render('Movies/Show', ['movie' => $movie]);
+        return Inertia::render("Movies/Show", ["movie" => $movie]);
     }
 
     /**
@@ -89,11 +89,11 @@ class MovieController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->cannot('update', $movie)) {
+        if ($user->cannot("update", $movie)) {
             abort(403);
         }
 
-        return Inertia::render('Movies/Edit', ['movie' => $movie]);
+        return Inertia::render("Movies/Edit", ["movie" => $movie]);
     }
 
     /**
@@ -107,20 +107,19 @@ class MovieController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->cannot('update', $movie)) {
+        if ($user->cannot("update", $movie)) {
             abort(403);
         }
 
         $data = $request->validated();
 
         //Check if request contains a new image
-        if ($request->file('image')) {
-            $image = $request->file('image')->storePublicly('movies', 'public');
-            $data['image']=$image;
+        if ($request->file("image")) {
+            $image = $request->file("image")->storePublicly("movies", "public");
+            $data["image"] = $image;
         }
 
-       
-        $data['user_id']=$user->id;
+        $data["user_id"] = $user->id;
 
         $this->movieRepo->update($data, $movie);
 
@@ -136,16 +135,14 @@ class MovieController extends Controller
     public function destroy(Movie $movie)
     {
         $user = Auth::user();
-        
-        if ($user->cannot('delete', $movie)) {
+
+        if ($user->cannot("delete", $movie)) {
             abort(403);
         }
 
         $movie->delete();
         return redirect()->back();
-        ;
     }
-
 
     /**
      * Get a paginated list of all the movies
@@ -153,12 +150,12 @@ class MovieController extends Controller
      * @param Request $request
      * @return LengthAwarePaginator
      */
-    public function paginated(Request $request):LengthAwarePaginator
+    public function paginated(Request $request): LengthAwarePaginator
     {
-        $search=$request['search'];
-        $sort=$request['sort'];
+        $search = $request["search"];
+        $sort = $request["sort"];
 
-        $movies=$this->movieRepo->paginated($search, $sort);
+        $movies = $this->movieRepo->paginated($search, $sort);
         return $movies;
     }
 }
